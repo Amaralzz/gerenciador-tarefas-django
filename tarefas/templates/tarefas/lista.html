@@ -9,7 +9,11 @@
     <h1>Minhas tarefas</h1>
     <ul>
         {% for tarefa in tarefas %}
-            <li>{{tarefa.titulo}}</li>
+            <a href="{% url 'editar_tarefa' tarefa.id %}"><li>{{tarefa.titulo}}</li></a>
+            <form action="{% url 'excluir_tarefa' tarefa.id %}" method="POST">
+                {% csrf_token %} 
+                <button>Excluir</button>
+            </form>
         {% endfor %}
     </ul>
 </body>
