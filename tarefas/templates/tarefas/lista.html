@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'estilo.css' %}">
 </head>
 <body>
     <h1>Minhas tarefas</h1>
@@ -16,5 +18,10 @@
             </form>
         {% endfor %}
     </ul>
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Sair</button>
+    </form>
+    <a href="{% url 'estatisticas' %}"> Estatísticas</a>
 </body>
 </html>
